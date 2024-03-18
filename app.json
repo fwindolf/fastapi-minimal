@@ -1,0 +1,22 @@
+{
+    "name": "fastapi-example",
+    "tests": [
+        "poetry run pytest test/integrationtest"
+    ],
+    "healthchecks": {
+        "web": [
+            {
+                "type": "startup",
+                "name": "healthcheck",
+                "path": "/health",
+                "attempts": 3
+            }
+        ]
+    },
+    "env": {
+        "API_KEY": {
+            "description": "API Key (for x-api-key header)",
+            "required": true
+        }
+    }
+}
